@@ -9,7 +9,7 @@ import userUtils from '../utils/user';
 class AuthController {
   /**
    * Signs in the user and generates an authentication token.
-   * 
+   *
    * Using the Basic auth technique (Base64 of the <email>:<password>),
    * it finds the user associated with the provided email and password
    * (The password is stored as a SHA1 hash).
@@ -55,7 +55,7 @@ class AuthController {
 
   /**
    * Signs out the user by deleting their authentication token from Redis.
-   * 
+   *
    * Retrieves the user based on the provided token.
    * If not found, returns a 401 Unauthorized error.
    * If found, deletes the token from Redis and returns a 204 status code.
