@@ -15,7 +15,7 @@ const fileQueue = new Queue('fileQueue');
 class FilesController {
   /**
    * Creates a new file and stores it in the database and locally.
-   * 
+   *
    * Handles user authentication and file validation.
    * If the file type is "folder", it directly adds the file to the DB.
    * For other file types, it stores the file locally and updates the database.
@@ -68,7 +68,7 @@ class FilesController {
 
   /**
    * Retrieves a file document based on the provided file ID.
-   * 
+   *
    * Ensures the user is authenticated and that the file exists.
    * Returns the file document if found, otherwise returns appropriate error codes.
    */
@@ -99,7 +99,7 @@ class FilesController {
 
   /**
    * Retrieves files based on the parentId and supports pagination.
-   * 
+   *
    * Handles user authentication and validates the parentId.
    * Returns paginated results with a maximum of 20 items per page.
    */
@@ -153,7 +153,7 @@ class FilesController {
 
   /**
    * Publishes a file (sets isPublic to true) based on the file ID.
-   * 
+   *
    * Ensures the user is authenticated and the file exists.
    * Updates the isPublic value of the file and returns the updated file.
    */
@@ -170,7 +170,7 @@ class FilesController {
 
   /**
    * Unpublishes a file (sets isPublic to false) based on the file ID.
-   * 
+   *
    * Ensures the user is authenticated and the file exists.
    * Updates the isPublic value of the file and returns the updated file.
    */
@@ -187,7 +187,7 @@ class FilesController {
 
   /**
    * Retrieves the content of a file based on the file ID.
-   * 
+   *
    * Ensures the file is available, the user has access to it, and it is not a folder.
    * Returns the file content with the appropriate MIME type.
    */
