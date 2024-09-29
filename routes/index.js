@@ -4,78 +4,74 @@ import UsersController from '../controllers/UsersController';
 import AuthController from '../controllers/AuthController';
 import FilesController from '../controllers/FilesController';
 
-/**
- * Function to define routing for controllers
- * @param {Express.Application} app - Express application instance
- */
 function controllerRouting(app) {
   const router = express.Router();
   app.use('/', router);
 
-  // App Controller Routes
+  // App Controller
 
-  // Route to check the status of Redis and DB
+  // Endpoint to check if Redis and the database are operational
   router.get('/status', (req, res) => {
     AppController.getStatus(req, res);
   });
 
-  // Route to get statistics of users and files in DB
+  // Endpoint to retrieve statistics about users and files in the database
   router.get('/stats', (req, res) => {
     AppController.getStats(req, res);
   });
 
-  // User Controller Routes
+  // User Controller
 
-  // Route to create a new user in the DB
+  // Endpoint to create a new user in the database
   router.post('/users', (req, res) => {
     UsersController.postNew(req, res);
   });
 
-  // Route to retrieve the current user based on authentication token
+  // Endpoint to get the details of the currently authenticated user based on token
   router.get('/users/me', (req, res) => {
     UsersController.getMe(req, res);
   });
 
-  // Auth Controller Routes
+  // Auth Controller
 
-  // Route to sign-in the user and generate an auth token
+  // Endpoint to sign in the user and generate an authentication token
   router.get('/connect', (req, res) => {
     AuthController.getConnect(req, res);
   });
 
-  // Route to sign-out the user using the authentication token
+  // Endpoint to sign out the user based on the authentication token
   router.get('/disconnect', (req, res) => {
     AuthController.getDisconnect(req, res);
   });
 
-  // Files Controller Routes
+  // Files Controller
 
-  // Route to upload a new file to DB and disk
+  // Endpoint to upload a new file to the database and the local filesystem
   router.post('/files', (req, res) => {
     FilesController.postUpload(req, res);
   });
 
-  // Route to retrieve file details by its ID
+  // Endpoint to retrieve a file document based on its ID
   router.get('/files/:id', (req, res) => {
     FilesController.getShow(req, res);
   });
 
-  // Route to list files for a specific parentId with pagination
+  // Endpoint to get all file documents for a specific parentId with pagination support
   router.get('/files', (req, res) => {
     FilesController.getIndex(req, res);
   });
 
-  // Route to make a file public by ID
+  // Endpoint to make a file public based on its ID
   router.put('/files/:id/publish', (req, res) => {
     FilesController.putPublish(req, res);
   });
 
-  // Route to make a file private by ID
+  // Endpoint to make a file private based on its ID
   router.put('/files/:id/unpublish', (req, res) => {
     FilesController.putUnpublish(req, res);
   });
 
-  // Route to retrieve the content of a file by ID
+  // Endpoint to retrieve the content of a file based on its ID
   router.get('/files/:id/data', (req, res) => {
     FilesController.getFile(req, res);
   });
