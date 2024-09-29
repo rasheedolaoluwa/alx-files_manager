@@ -12,7 +12,7 @@ const userQueue = new Queue('userQueue');
 class UsersController {
   /**
    * Creates a new user using email and password
-   * 
+   *
    * If the email is missing, returns 400 with an error message 'Missing email'
    * If the password is missing, returns 400 with an error message 'Missing password'
    * If the email already exists, returns 400 with an error 'Already exist'
@@ -58,7 +58,7 @@ class UsersController {
 
   /**
    * Retrieves a user based on the authentication token
-   * 
+   *
    * If the user is not found, returns 401 with an 'Unauthorized' error
    * Otherwise, returns the user's email and id
    */
